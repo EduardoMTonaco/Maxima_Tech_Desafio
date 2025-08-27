@@ -18,14 +18,14 @@ A solução é composta por **quatro projetos** principais:
 
 **Endpoints:**
 
-- `GET /DepartamentosSelect`
-- `GET /ProdutosSelect`
+- `GET /DepartamentosSelect?{Id}`
+- `GET /ProdutosSelect?{Id}&{Nome}&{Descricao}&{DepartamentoId}&{Preco}&{DepartamentoNome}`
 - `POST /ProdutosInsert`
-- `PUT /produtos/{id}`
-- `DELETE /ProdutosDelete`
+- `PUT /produtos?{id}`
+- `DELETE /ProdutosDelete?{id}`
 - `POST /usuarios/cadastrar`
 - `POST /login`
-- `GET /login/authorized` (validação de token)
+- `GET /login` (validação de token)
 
 ---
 
