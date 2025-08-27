@@ -1,0 +1,114 @@
+﻿@rendermode InteractiveServer
+@page "/Produtos/ListProdutos"
+@inherits BasePage
+@if (showMessageBox)
+{
+    <MessageBox Message="@Message" Close="CloseMessageBox" />
+}
+
+<ConfirmModal @ref="confirmModal" Title="Excluir Produto" IsOpen="isOpenConfirmModal" Width="500" Height="200">
+    <ChildContent>
+        <div>Deseja deletar o produto : @ProductId ?</div>
+    </ChildContent>
+    <FooterContent>
+        <button @onclick="DeleteProduct">Confirmar</button>
+    </FooterContent>
+</ConfirmModal>
+
+<h3>Lista de Produtos</h3>
+<br />
+<br />
+<br />
+<div class="round-border">
+    <h2 class="border-title">Filtro de pesquisa</h2>
+    <table cellpadding="10">
+        <tr>
+            <th class="rightColumn">Id</th>
+            <th class="leftColumn"><input type="text" @bind="TXT_Id" placeholder="" maxlength="50" /></th>
+        </tr>
+        <tr>
+            <th class="rightColumn">Nome</th>
+            <th class="leftColumn"><input type="text" @bind="TXT_Nome" placeholder="" maxlength="40" /></th>
+        </tr>
+        <tr>
+            <th class="rightColumn">Descrição</th>
+            <th class="leftColumn"><textarea @bind="TXT_Descricao" placeholder="" maxlength="150" style="width: 205px;" rows="3" /></th>
+        </tr>
+        <tr>
+            <th class="rightColumn">Departmento</th>
+            <th class="leftColumn">
+                <select @onchange="HandleDepartamentoChange" style="width:205px;">
+                    <option value="">-- Selecione --</option>
+                    @foreach (var departamento in Departamentos)
+                    {
+                        <option value="@departamento.Id">@departamento.Nome</option>
+                    }
+                </select>
+            </th>
+        </tr>
+        <tr>
+            <th class="rightColumn">Preço</th>
+            <th class="leftColumn"><input type="text" @bind="TXT_Preco" placeholder="" onblur="formatNumero(this)" maxlength="11" /></th>
+        </tr>
+        <tr>
+            <th colspan="2" class="centerColumn"><button class="btn btn-primary" @onclick="BTN_Search">Search</button></th>
+        </tr>
+    </table>
+</div>
+@if (Produtos.Count > 0)
+{
+    <br />
+    <br />
+    <br />
+    <div class="round-border">
+        <h3 class="border-title">Lista de Produtos</h3>
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th class="grayRow"></th>
+                    <th class="grayRow">ID</th>
+                    <th class="grayRow">Name</th>
+                    <th class="grayRow">Descrição</th>
+                    <th class="grayRow">Departamento</th>
+                    <th class="grayRow">Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Produtos)
+                {
+                    <tr>
+                        @if (GrayColumn())
+                        {
+                            <td class="grayRow">
+                                <div class="optionsColumn">
+                                    <NavLink class="nav-link" href="@($"/Produtos/Produto?id={product.Id}")"><img class="Pointer" width="25" height="auto" title="Alterar" src="icons/edit.png" /></NavLink>
+                                    <a @onclick="@(e => BTN_Delete(product.Id.ToString()))"><img class="Pointer" width="25" height="auto" title="Excluir" src="icons/remove.png" /></a>
+                                </div>
+                            </td>
+                            <td class="grayRow" width="100px"> @product.Id.ToString()</td>
+                            <td class="grayRow" width="200px">@product.Nome</td>
+                            <td class="grayRow" width="300px">@product.Descricao</td>
+                            <td class="grayRow" width="150px">@product.Departamento.Nome</td>
+                            <td class="grayRow" width="150px">@product.Preco</td>
+                        }
+                        @if (grayRow)
+                        {
+                            <td class="NograyRow">
+                                <div class="optionsColumn">
+                                    <NavLink class="nav-link" href="@($"/Produtos/Produto?id={product.Id}")"><img class="Pointer" width="25" height="auto" title="Alterar" src="icons/edit.png" /></NavLink>
+                                    <a @onclick="@(e => BTN_Delete(product.Id.ToString()))"><img class="Pointer" width="25" height="auto" title="Excluir" src="icons/remove.png" /></a>
+                                </div>
+                            </td>
+                            <td class="NograyRow" width="100px"> @product.Id.ToString()</td>
+                            <td class="NograyRow" width="200px">@product.Nome</td>
+                            <td class="NograyRow" width="300px">@product.Descricao</td>
+                            <td class="NograyRow" width="150px">@product.Departamento.Nome</td>
+                            <td class="NograyRow" width="150px">@product.Preco</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,17 @@
+﻿@using Maxima_Tech_Web.Components.Pages.Login
+@inherits LoginMainPage
+@rendermode InteractiveServer
+<span class="brand">
+    <a class="navbar-brand" href="">Maxima_Tech_Web</a>
+</span>
+@if(IsLogged)
+{
+    <NavMenu></NavMenu>
+}
+else
+{
+    <LoginPage />
+}
+   
+
+   

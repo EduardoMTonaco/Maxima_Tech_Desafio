@@ -1,0 +1,1 @@
+insert into produtos (Código, descricao, departamento, preco, status) values ('102030', 'Roupa masculina',2, 59.90, 1)

@@ -1,0 +1,20 @@
+﻿@inherits LoginMainPage
+@rendermode InteractiveServer
+
+@if (showMessageBox)
+{
+    <MessageBox Message="@Message" Close="CloseMessageBox" />
+}
+
+
+<span class="loginCenter">
+    <EditForm Model="@_loginModel" OnValidSubmit="@Login" FormName="loginForm" class="form-inline">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <span class="logintext"><label>Usuário:</label></span>
+        <InputText @bind-Value="_loginModel.Username" />
+        <span class="logintext" style="margin-left: 10px;"><label>Senha:</label></span>
+        <InputText @bind-Value="_loginModel.Password" type="password" />
+        <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Login</button>
+    </EditForm>
+</span>

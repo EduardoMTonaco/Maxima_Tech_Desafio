@@ -1,0 +1,72 @@
+﻿
+.grayRow {
+    background-color: #dce3f2;
+    text-align: center;
+}
+
+.NograyRow {
+    text-align: center;
+    background-color: #fafbfc;
+}
+
+.Pointer {
+    cursor: pointer;
+}
+
+.round-border {
+    position: relative;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 3px #ccc;
+    border-radius: 10px;
+    border-top-right-radius: -10px;
+    border-top: none;
+    padding: 20px;
+    display: inline-block;
+}
+
+.border-title {
+    position: absolute;
+    top: -8%;
+    left: 5%;
+    background-color: #fff;
+    padding: 5px;
+    border-bottom-right-radius: 10px;
+    font-size: 26px;
+}
+
+.load-files-label {
+    padding: 5px;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.rightColumn {
+    text-align: right;
+}
+
+.leftColumn {
+    text-align: left;
+}
+
+.centerColumn {
+    text-align: center;
+}
+
+.filterTable {
+    width: 100%;
+}
+
+.optionsColumn {
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.brand {
+    justify-content: flex-end;
+    height: 3.5rem;
+    position: absolute;
+    padding: 45px;
+}

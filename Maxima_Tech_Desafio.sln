@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxima_Tech_API", "Maxima_Tech_API\Maxima_Tech_API.csproj", "{00FDD0F0-9179-4DCC-821C-5C00D4C5AFBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{8D70AFC3-11CF-4AD6-A0C7-F9E67C45014D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxima_Tech_Web", "Maxima_Tech_Web\Maxima_Tech_Web.csproj", "{DDB2E519-42A1-4243-A9AF-0FBD4E93E9E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxima_Tech_RabbitMQ", "Maxima_Tech_RabbitMQ\Maxima_Tech_RabbitMQ.csproj", "{FC83F9A8-4235-4B53-8047-CD52B98BA83F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{380A7511-A354-6D7A-0CC0-8FA1F1BA7B6C}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+		ReadME.md = ReadME.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreateTableMySQL", "CreateTableMySQL", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		CreateTable\Create_Table_Departamento.sql = CreateTable\Create_Table_Departamento.sql
+		CreateTable\Create_Table_Produtos.sql = CreateTable\Create_Table_Produtos.sql
+		CreateTable\create_table_usuarios.sql = CreateTable\create_table_usuarios.sql
+		CreateTable\Insert_Produtos.sql = CreateTable\Insert_Produtos.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{CD71E7DA-507B-4F9F-A2D2-A526F603F4F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{8FFAE0FE-999E-43CB-A2E1-13DAD6937F6A}"
+	ProjectSection(SolutionItems) = preProject
+		docker\init.sql = docker\init.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00FDD0F0-9179-4DCC-821C-5C00D4C5AFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FDD0F0-9179-4DCC-821C-5C00D4C5AFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FDD0F0-9179-4DCC-821C-5C00D4C5AFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FDD0F0-9179-4DCC-821C-5C00D4C5AFBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D70AFC3-11CF-4AD6-A0C7-F9E67C45014D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D70AFC3-11CF-4AD6-A0C7-F9E67C45014D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D70AFC3-11CF-4AD6-A0C7-F9E67C45014D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D70AFC3-11CF-4AD6-A0C7-F9E67C45014D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDB2E519-42A1-4243-A9AF-0FBD4E93E9E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB2E519-42A1-4243-A9AF-0FBD4E93E9E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB2E519-42A1-4243-A9AF-0FBD4E93E9E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB2E519-42A1-4243-A9AF-0FBD4E93E9E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC83F9A8-4235-4B53-8047-CD52B98BA83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC83F9A8-4235-4B53-8047-CD52B98BA83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC83F9A8-4235-4B53-8047-CD52B98BA83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC83F9A8-4235-4B53-8047-CD52B98BA83F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {CD71E7DA-507B-4F9F-A2D2-A526F603F4F9}
+		{CD71E7DA-507B-4F9F-A2D2-A526F603F4F9} = {380A7511-A354-6D7A-0CC0-8FA1F1BA7B6C}
+		{8FFAE0FE-999E-43CB-A2E1-13DAD6937F6A} = {380A7511-A354-6D7A-0CC0-8FA1F1BA7B6C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {351648FC-BEF9-4A07-B77D-D63115C9D75A}
+	EndGlobalSection
+EndGlobal

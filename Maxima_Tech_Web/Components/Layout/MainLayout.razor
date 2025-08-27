@@ -1,0 +1,24 @@
+﻿@using Maxima_Tech_Web.Components.Layout
+@inherits LoginMainPage
+
+<div class="topbar">
+    <Header></Header>
+</div>
+<div class="page">
+    <main>
+        <article class="content px-4">
+            <center>
+            @if (IsLogged)
+            {
+                @Body
+            }
+            </center>
+        </article>
+    </main>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>

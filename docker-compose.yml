@@ -1,0 +1,75 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - maxima-net
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Root
+      MYSQL_DATABASE: maximatech
+      MYSQL_USER: MaximaTech
+      MYSQL_PASSWORD: "Senha!@34##13"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - maxima-net
+
+  api:
+    build:
+      context: .
+      dockerfile: Maxima_Tech_API/Dockerfile
+    container_name: api
+    ports:
+      - "7020:7020"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=mysql;Port=3306;Database=maximatech;User=MaximaTech;Password=Senha!@34##13;
+      - RabbitMq__Host=rabbitmq
+      - RabbitMq__Username=guest
+      - RabbitMq__Password=guest
+      - RabbitMq__VirtualHost=/
+      - DOTNET_RUNNING_IN_CONTAINER=true
+    depends_on:
+      - mysql
+      - rabbitmq
+    networks:
+      - maxima-net
+
+  blazor:
+    build:
+      context: .                       # contexto alterado para raiz
+      dockerfile: Maxima_Tech_Web/Dockerfile
+    container_name: blazor
+    ports:
+      - "5247:5247"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DOTNET_RUNNING_IN_CONTAINER=true
+    depends_on:
+      - api
+    networks:
+      - maxima-net
+
+volumes:
+  rabbitmq_data:
+  mysql_data:
+
+networks:
+  maxima-net:
+      name: maxima-net  

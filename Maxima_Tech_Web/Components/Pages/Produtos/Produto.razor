@@ -1,0 +1,48 @@
+﻿@rendermode InteractiveServer
+@inherits BasePage
+@page "/Produtos/Produto"
+<h3>@Title</h3>
+@if (showMessageBox)
+{
+    <MessageBox Message="@Message" Close="CloseMessageBox" />
+}
+
+<br />
+<br />
+<br />
+<div class="round-border">
+    <h2 class="border-title">Produto</h2>
+    <table cellpadding="10">
+        <tr>
+            <th class="rightColumn">Id</th>
+            <th class="leftColumn"><input type="text" disabled="true" @bind="TXT_Id" placeholder="" maxlength="50" /></th>
+        </tr>
+        <tr>
+            <th class="rightColumn">Nome</th>
+            <th class="leftColumn"><input type="text" @bind="TXT_Nome" placeholder="" maxlength="40" /></th>
+        </tr>
+        <tr>
+            <th class="rightColumn">Descrição</th>
+            <th class="leftColumn"><textarea  @bind="TXT_Descricao" placeholder="" maxlength="150" style="width: 205px;" rows="3" /></th>
+        </tr>
+        <tr>
+            <th class="rightColumn">Departmento</th>
+            <th class="leftColumn">
+                <select @bind="SelectedDepartamentoId"  style="width:205px;">
+                    <option value="0">-- Selecione --</option>
+                    @foreach (var departamento in Departamentos)
+                    {
+                        <option value="@departamento.Id">@departamento.Nome</option>
+                    }
+                </select>
+            </th>
+        </tr>
+        <tr>
+            <th class="rightColumn">Preço</th>
+            <th class="leftColumn"><input type="text" @bind="TXT_Preco" placeholder="" onblur="formatNumero(this)" maxlength="11" /></th>
+        </tr>
+        <tr>
+            <th colspan="2" class="centerColumn"><button class="btn btn-primary" @onclick="BTN_Action">@ActionLabel</button></th>
+        </tr>
+    </table>
+</div>
