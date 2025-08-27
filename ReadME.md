@@ -78,8 +78,8 @@ Todos os serviços rodam com Docker, usando **Docker Compose**:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repo.git
-   cd seu-repo
+   git clone https://github.com/EduardoMTonaco/Maxima_Tech_Desafio
+   cd Maxima_Tech_Desafio
 
 
 2. Suba os containers:
