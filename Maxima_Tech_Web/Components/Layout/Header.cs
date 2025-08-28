@@ -10,6 +10,12 @@ namespace Maxima_Tech_Web.Components.Layout
 {
     public partial class Header : LoginMainPage
     {
-        
+        private async Task Logout()
+        {
+            IsLogged = false;
+            await LocalStorage.RemoveItemAsync("token");
+            IsLogged = false;
+            Navigation.NavigateTo("/", true);
+        }
     }
 }

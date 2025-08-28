@@ -71,7 +71,7 @@ namespace Maxima_Tech_Web.Components.Pages.Login
                     else
                     {
                         IsLogged = false;
-                        Message = "Login Falhou" + response.Content;
+                        Message = "Login Falhou. Entre em contato com o suporte." ;
                         showMessageBox = true;
                     }
                 }

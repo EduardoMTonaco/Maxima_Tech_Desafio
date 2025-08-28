@@ -42,6 +42,7 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
 .rightColumn {
     text-align: right;
 }
@@ -70,3 +71,31 @@
     position: absolute;
     padding: 45px;
 }
+
+.brand {
+    justify-content: flex-end;
+    height: 3.5rem;
+    position: absolute;
+    padding: 45px;
+}
+
+    .brand a {
+        color: white;
+    }
+
+        .brand a:hover {
+            color: white;
+        }
+
+.fixed-top-right {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+}
+    .fixed-top-right a {
+        color: white;
+        text-decoration: none;
+    }
+        .fixed-top-right a:hover {
+            color: white;
+        }

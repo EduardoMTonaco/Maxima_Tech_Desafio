@@ -5,6 +5,13 @@ namespace Maxima_Tech_Web.Components
 {
     public class LoginMainPage : LayoutComponentBase
     {
+        protected NavigationManager _navigation;
+        [Inject]
+        protected NavigationManager Navigation
+        {
+            get => _navigation;
+            set => _navigation = value;
+        }
         protected HttpClient _httpClient;
         [Inject]
         protected HttpClient HttpClient

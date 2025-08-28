@@ -2,16 +2,21 @@
 @inherits LoginMainPage
 @rendermode InteractiveServer
 <span class="brand">
-    <a class="navbar-brand" href="">Maxima_Tech_Web</a>
+    <a class="navbar-brand" href="">Desafio Maxima Tech</a>
 </span>
-@if(IsLogged)
+@if (IsLogged)
 {
+    <div class="fixed-top-right">
+        <a class="btn btn-link" @onclick="Logout">
+            <i class="fas fa-sign-out-alt"></i> Deslogar
+        </a>
+    </div>
     <NavMenu></NavMenu>
 }
 else
 {
-    <LoginPage />
+<LoginPage />
 }
-   
 
-   
+
+
